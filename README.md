@@ -5,7 +5,7 @@ Sketchup addon for creating "Xray" copies of individual groups.
 <img src="./INVIS_ROOF.PNG">
 
 # Installation
-Either install with the add-on manager using the .rbz file or paste the .rb file in your sketchup addons folder directly.
+Install with the add-on manager using the .rbz file.
 
 # Instructions
 1. Select groups that are to be "Xray'd"
