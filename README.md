@@ -26,4 +26,4 @@ This is due to the way that sketchup handles ungrouped surfaces, if a surface is
 - Support for components and surfaces (see above).
 
 # Disclamer
-<b> Use at your own risk. I am brand new to Ruby and pretty new to SketchUp for that matter and I am learning the weird quirks of each. With that being said, I have tested it a bit and it seems to work fine. Also, everything *should* be fully reversable with undo.</b>
+<b> Use at your own risk. I am brand new to Ruby and pretty new to SketchUp for that matter and I am learning the weird quirks of each. With that being said, I have tested it a bit and it seems to work fine. Also, everything *should* be fully reversible with undo.</b>
