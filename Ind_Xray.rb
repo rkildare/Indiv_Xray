@@ -1,6 +1,5 @@
 require 'sketchup.rb'
 require 'extensions.rb'
-#test this
 module Rkildare
   module IndXray
     unless file_loaded?(__FILE__)
