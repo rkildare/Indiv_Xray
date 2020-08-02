@@ -37,10 +37,10 @@ module Rkildare
 
     def self.search(obj)
       for ent in obj.entities
-        if ent.typename == "Face"
+        if ent.is_a?(Sketchup::Face)
           ent.material = mmat(ent.material)
           ent.back_material = mmat(ent.back_material)
-        elsif ent.typename == "Group"
+        elsif ent.is_a?(Sketchup::Group)
           ent.make_unique()
           ent.material = mmat(ent.material)
           search(ent)
@@ -51,7 +51,7 @@ module Rkildare
 
     def self.btmat(obj)
       if obj.material.nil?
-        if obj.parent.typename != "Model"
+        if !obj.parent.is_a?(Sketchup::Model)
           obj = obj.parent.instances[0]
           material = btmat(obj)
           return material
@@ -67,7 +67,7 @@ module Rkildare
     def self.beg(sel)
       groups = []
       for obj in sel
-        if obj.typename == "Group"
+        if obj.is_a?(Sketchup::Group)
           tempg = obj.copy
           tempg.material = mmat(btmat(obj))
           groups << tempg
