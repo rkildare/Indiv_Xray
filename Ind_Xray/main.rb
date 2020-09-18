@@ -64,12 +64,22 @@ module Rkildare
     end
 
 
-    def self.beg(sel)
+    def self.beg(sel,model)
       groups = []
       for obj in sel
-        if obj.is_a?(Sketchup::Group)
-          tempg = obj.copy
-          tempg.material = mmat(btmat(obj))
+        if obj.is_a?(Sketchup::Group) or obj.is_a?(Sketchup::ComponentInstance)
+          if obj.is_a?(Sketchup::ComponentInstance)
+            trans = obj.transformation
+            comat = obj.material
+            obj = obj.definition
+            newcom = model.active_entities.add_instance(obj,trans).make_unique
+            newcom.material = comat
+            tempg = newcom.definition
+            newcom.material = mmat(btmat(newcom))
+          else
+            tempg = obj.copy
+            tempg.material = mmat(btmat(obj))
+          end
           groups << tempg
           search(tempg)
         end
