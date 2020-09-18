@@ -76,11 +76,12 @@ module Rkildare
             newcom.material = comat
             tempg = newcom.definition
             newcom.material = mmat(btmat(newcom))
+            groups << newcom
           else
             tempg = obj.copy
             tempg.material = mmat(btmat(obj))
+            groups << tempg
           end
-          groups << tempg
           search(tempg)
         end
       end
@@ -105,7 +106,7 @@ module Rkildare
         layer = "Individual_XRay"
       end
 
-      groups = beg(ss)
+      groups = beg(ss,model)
       for thing in groups
         thing.layer = layer
       end
