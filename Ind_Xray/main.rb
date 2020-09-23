@@ -44,6 +44,10 @@ module Rkildare
           ent.make_unique()
           ent.material = mmat(ent.material)
           search(ent)
+        elsif ent.is_a?(Sketchup::ComponentInstance)
+          newcom = ent.make_unique
+          newcom.material = mmat(newcom.material)
+          search(newcom.definition)
         end
       end
     end
