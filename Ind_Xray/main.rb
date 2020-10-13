@@ -38,8 +38,15 @@ module Rkildare
     def self.search(obj)
       for ent in obj.entities
         if ent.is_a?(Sketchup::Face)
+          #if ent.material.nil?
+          #  ent.material = "white"
+          #end
           ent.material = mmat(ent.material)
-          ent.back_material = mmat(ent.back_material)
+          if ent.back_material.nil?
+            ent.back_material = ent.material
+          else
+            ent.back_material = mmat(ent.back_material)
+          end
         elsif ent.is_a?(Sketchup::Group)
           ent.make_unique()
           ent.material = mmat(ent.material)
@@ -60,7 +67,11 @@ module Rkildare
           material = btmat(obj)
           return material
         else
-          return nil
+          if Sketchup.active_model.materials["white"].nil?
+            col = Sketchup.active_model.materials.add("white")
+            col.color = 0xffffff
+          end
+          return col
         end
       else
         return obj.material
@@ -96,7 +107,7 @@ module Rkildare
     def self.iXray
       model = Sketchup.active_model
       ss = model.selection
-      
+
       if ss.empty?	## May remove this section. 
         UI.messagebox("No Selection")
         return nil
