@@ -6,7 +6,7 @@ module Rkildare
         unless file_loaded?(__FILE__)
             ex = SketchupExtension.new('Individual Xray', 'Ind_Xray/main')
             ex.description = 'Xray view creater for individual groups.'
-            ex.version = '1.0c'
+            ex.version = '1.0d'
             ex.creator = 'rkildare'
             Sketchup.register_extension(ex,true)
             file_loaded(__FILE__)

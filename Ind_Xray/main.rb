@@ -42,11 +42,12 @@ module Rkildare
           #  ent.material = "white"
           #end
           ent.material = mmat(ent.material)
-          if ent.back_material.nil?
-            ent.back_material = ent.material
-          else
-            ent.back_material = mmat(ent.back_material)
-          end
+          #if ent.back_material.nil?
+          #  ent.back_material = ent.material
+          #else
+          #  ent.back_material = mmat(ent.back_material)
+          #end
+          ent.back_material = mmat(ent.back_material)
         elsif ent.is_a?(Sketchup::Group)
           ent.make_unique()
           ent.material = mmat(ent.material)
@@ -70,6 +71,8 @@ module Rkildare
           if Sketchup.active_model.materials["white"].nil?
             col = Sketchup.active_model.materials.add("white")
             col.color = 0xffffff
+          else#canrem
+            col = Sketchup.active_model.materials["white"]#canrem
           end
           return col
         end
