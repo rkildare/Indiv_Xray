@@ -1,11 +1,15 @@
 # Indiv_Xray
 Sketchup addon for creating "Xray" copies of individual groups/components.
 
+<b>NOTE: Can now be found in the SketchUp Extension Warehouse.</b>
+
 <img src="./SOLID-ROOF.PNG">
 <img src="./INVIS_ROOF.PNG">
 
 # Installation
-Install with the add-on manager using the .rbz file.
+Install either:
+ - Via the SketchUp Extension Warehouse.
+ - Via the add-on manager using the .rbz file which can be downloaded from the releases menu within this repository.
 
 # Instructions
 1. Select objects that are to be "Xray'd"
